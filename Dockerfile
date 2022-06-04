@@ -9,4 +9,5 @@ ARG JAVA_VERSION="11.0.15-tem"
 RUN . /home/gitpod/.sdkman/bin/sdkman-init.sh && sdk selfupdate force && \
     yes | sdk install java "${JAVA_VERSION}"
 COPY .dockershell.sh ~/.zshrc
-RUN zsh /home/main/.zshrc
+SHELL ["/home/linuxbrew/.linuxbrew/bin/zsh", "-c"]
+RUN zsh ~/.zshrc
