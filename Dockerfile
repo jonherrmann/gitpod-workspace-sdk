@@ -7,6 +7,6 @@ RUN brew install zsh antigen
 RUN curl -s "https://get.sdkman.io" | bash
 ARG JAVA_VERSION="11.0.15-tem"
 RUN . /home/gitpod/.sdkman/bin/sdkman-init.sh && sdk selfupdate force && \
-    yes | sdk install java "${JAVA_VERSION}" && \
+    yes | sdk install java "${JAVA_VERSION}"
 COPY .dockershell.sh ~/.zshrc
 RUN zsh /home/main/.zshrc
