@@ -12,6 +12,7 @@ antigen bundle git
 antigen bundle docker
 antigen theme cloud
 antigen bundle Tarrasch/zsh-autoenv
+antigen bundle matthieusb/zsh-sdkman
 antigen apply
 
 #bindkey '^H' backward-kill-word
