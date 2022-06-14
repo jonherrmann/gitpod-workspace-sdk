@@ -17,4 +17,4 @@ antigen apply
 
 #bindkey '^H' backward-kill-word
 
-alias kaj="killall -9 java"
+alias kaj="killall java"
