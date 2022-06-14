@@ -14,6 +14,7 @@ RUN brew install zsh antigen coursier
 COPY .dockershell.sh /home/gitpod/.zshrc
 COPY init.sh /home/gitpod/init.sh
 COPY cmd.sh /home/gitpod/cmd.sh
+RUN sudo chmod +x /home/gitpod/init.sh /home/gitpod/cmd.sh
 
 SHELL ["/home/linuxbrew/.linuxbrew/bin/zsh", "-c"]
 RUN zsh /home/gitpod/.zshrc

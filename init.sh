@@ -18,6 +18,3 @@ coursier install --install-dir $APPS_DIR --only-prebuilt=true bloop
 coursier install --install-dir $APPS_DIR sbt
 
 coursier launch org.scalameta:metals_2.13:$METALS_VERSION --cache=$METALS_DIR/coursier  --main-class scala.meta.metals.DownloadDependencies
-
-sbt -Dbloop.export-jar-classifiers=sources bloopInstall
-bloop compile --cascade root
