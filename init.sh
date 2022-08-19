@@ -8,11 +8,13 @@ METALS_VERSION="0.11.6"
 
 export PATH=$PATH:/home/gitpod/.sdkman/candidates/java/current/bin:/home/linuxbrew/.linuxbrew/bin/coursier:$APPS_DIR
 
-echo "-Dsbt.coursier.home=$METALS_DIR/coursier" >> .jvmopts
-echo "-Dcoursier.cache=$METALS_DIR/coursier" >> .jvmopts
-echo "-Dsbt-dir=$METALS_DIR/sbt" >> .jvmopts
-echo "-Dsbt-boot=$METALS_DIR/sbt/boot" >> .jvmopts
-echo "-Divy=$METALS_DIR/.ivy2" >> .jvmopts
+if [ ! -f ./.jvmopts ]; then
+ echo "-Dsbt.coursier.home=$METALS_DIR/coursier" >> .jvmopts
+ echo "-Dcoursier.cache=$METALS_DIR/coursier" >> .jvmopts
+ echo "-Dsbt-dir=$METALS_DIR/sbt" >> .jvmopts
+ echo "-Dsbt-boot=$METALS_DIR/sbt/boot" >> .jvmopts
+ echo "-Divy=$METALS_DIR/.ivy2" >> .jvmopts
+fi
 
 coursier install --install-dir $APPS_DIR --only-prebuilt=true bloop
 coursier install --install-dir $APPS_DIR sbt
