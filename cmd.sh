@@ -6,8 +6,9 @@ mkdir -p $APPS_DIR
 
 export PATH=$PATH:/home/gitpod/.sdkman/candidates/java/current/bin:/home/linuxbrew/.linuxbrew/bin/coursier:$APPS_DIR
 
-if [ -n $SBT_CUSTOM_PLUGIN ]; then
+if [ -n "$SBT_CUSTOM_PLUGIN" ]; then
     echo "Installing custom plugin"
+    mkdir -p "$METALS_DIR/sbt/1.0/plugins/"
     echo "$SBT_CUSTOM_PLUGIN" > "$METALS_DIR/sbt/1.0/plugins/custom.scala"
 fi
 
