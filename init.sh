@@ -1,10 +1,18 @@
  #!/bin/bash
 
+# Fetch other repos
+if [ -f "$GITPOD_REPO_ROOT/.meta" ]; then
+    if [ ! -f "$GITPOD_REPO_ROOT/.meta-updated" ]; then
+        echo "Running meta git update"
+        meta git update
+        echo $(date) >> "$GITPOD_REPO_ROOT/.meta-updated"
+    fi
+fi
+
 # Install ZSHRC
 cp /home/gitpod/.zshrc.new /home/gitpod/.zshrc
 
 # Install Metals
-
 METALS_DIR="$GITPOD_REPO_ROOT/.metals"
 APPS_DIR="$METALS_DIR/apps"
 mkdir -p $APPS_DIR

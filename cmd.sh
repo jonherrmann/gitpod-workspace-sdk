@@ -11,10 +11,3 @@ if [ -n "$SBT_CUSTOM_PLUGIN" ]; then
     mkdir -p "$METALS_DIR/sbt/1.0/plugins/"
     echo "$SBT_CUSTOM_PLUGIN" > "$METALS_DIR/sbt/1.0/plugins/custom.scala"
 fi
-
-if [ -f "$GITPOD_REPO_ROOT/.meta" ]; then
-    if [ ! -f "$GITPOD_REPO_ROOT/.meta-updated" ]; then
-        meta git update
-        echo $(date) >> "$GITPOD_REPO_ROOT/.meta-updated"
-    fi
-fi
