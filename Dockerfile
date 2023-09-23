@@ -11,18 +11,21 @@ RUN . /home/gitpod/.sdkman/bin/sdkman-init.sh && sdk selfupdate force && \
 ENV JAVA_HOME=/home/gitpod/.sdkman/candidates/java/current/
 
 RUN brew install \
-    zsh \
     antigen \
     coursier \
-    plantuml
+    plantuml \
+    ctop
 
 Run npm i -g \
     meta
 
-COPY .dockershell.sh /home/gitpod/.zshrc
+COPY .dockershell.sh /home/gitpod/.zshrc.new
 COPY init.sh /home/gitpod/init.sh
 COPY cmd.sh /home/gitpod/cmd.sh
-RUN sudo chmod +x /home/gitpod/init.sh /home/gitpod/cmd.sh
+RUN sudo chmod +x \
+    /home/gitpod/init.sh \
+    /home/gitpod/cmd.sh \
+    /home/gitpod/.zshrc.new
 
-SHELL ["/home/linuxbrew/.linuxbrew/bin/zsh", "-c"]
-RUN zsh /home/gitpod/.zshrc
+SHELL ["/bin/zsh", "-c"]
+RUN zsh /home/gitpod/.zshrc.new
