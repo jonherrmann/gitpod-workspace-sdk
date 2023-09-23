@@ -16,9 +16,6 @@ RUN brew install \
     plantuml \
     ctop
 
-Run npm i -g \
-    meta
-
 COPY .dockershell.sh /home/gitpod/.zshrc.new
 COPY init.sh /home/gitpod/init.sh
 COPY cmd.sh /home/gitpod/cmd.sh
