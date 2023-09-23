@@ -22,9 +22,11 @@ Run npm i -g \
 COPY .dockershell.sh /home/gitpod/.zshrc.new
 COPY init.sh /home/gitpod/init.sh
 COPY cmd.sh /home/gitpod/cmd.sh
+COPY before.sh /home/gitpod/before.sh
 RUN sudo chmod +x \
     /home/gitpod/init.sh \
     /home/gitpod/cmd.sh \
+    /home/gitpod/before.sh \
     /home/gitpod/.zshrc.new
 
 SHELL ["/bin/zsh", "-c"]
