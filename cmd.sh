@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export PATH=$PATH:/home/gitpod/.sdkman/candidates/java/current/bin:/home/gitpod/.local/share/coursier/bin
+export PATH=/home/gitpod/.sdkman/candidates/java/current/bin:$PATH:/home/gitpod/.local/share/coursier/bin
 
 if [ -n "$SBT_CUSTOM_PLUGIN" ]; then
     echo "Installing custom plugin"
