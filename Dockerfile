@@ -5,7 +5,6 @@ USER gitpod
 
 ARG JAVA_VERSION="11.0.20.1-librca"
 ARG SCALA_VERSION="2.13.9"
-ARG METALS_VERSION="1.0.1"
 ARG SBT_VERSION="1.8.3"
 
 RUN curl -s "https://get.sdkman.io" | bash
@@ -18,12 +17,7 @@ ENV JAVA_HOME=/home/gitpod/.sdkman/candidates/java/current/
 
 RUN brew install \
     antigen \
-    coursier \
-    plantuml \
     ctop
-
-RUN coursier install --only-prebuilt=true bloop && \
-    coursier fetch org.scalameta:metals_2.13:$METALS_VERSION
 
 COPY .dockershell.sh /home/gitpod/.zshrc.new
 COPY init.sh /home/gitpod/init.sh
