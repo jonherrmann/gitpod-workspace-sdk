@@ -35,7 +35,7 @@ RUN sudo chmod +x \
     /home/gitpod/before.sh \
     /home/gitpod/.zshrc.new
 
-ENV SHELL=/usr/bin/zsh
+ENV SHELL=/home/linuxbrew/.linuxbrew/bin/zsh
 
-SHELL ["/usr/bin/zsh", "-c"]
+SHELL ["/home/linuxbrew/.linuxbrew/bin/zsh", "-c"]
 RUN zsh /home/gitpod/.zshrc.new
