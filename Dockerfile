@@ -10,7 +10,9 @@ ARG SBT_VERSION="1.8.3"
 
 RUN curl -s "https://get.sdkman.io" | bash
 RUN . /home/gitpod/.sdkman/bin/sdkman-init.sh && sdk selfupdate force && \
-    yes | sdk install java "${JAVA_VERSION}"
+    yes | sdk install java "${JAVA_VERSION}" && \
+    sdk install sbt $SBT_VERSION && \
+    sdk install scala $SCALA_VERSION
 
 ENV JAVA_HOME=/home/gitpod/.sdkman/candidates/java/current/
 
@@ -21,7 +23,6 @@ RUN brew install \
     ctop
 
 RUN coursier install --only-prebuilt=true bloop && \
-    coursier install coursier scalac:$SCALA_VERSION sbt:$SBT_VERSION sbt-launcher && \
     coursier fetch org.scalameta:metals_2.13:$METALS_VERSION && \
     brew remove coursier
 
