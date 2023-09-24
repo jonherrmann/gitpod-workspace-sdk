@@ -23,8 +23,7 @@ RUN brew install \
     ctop
 
 RUN coursier install --only-prebuilt=true bloop && \
-    coursier fetch org.scalameta:metals_2.13:$METALS_VERSION && \
-    brew remove coursier
+    coursier fetch org.scalameta:metals_2.13:$METALS_VERSION
 
 COPY .dockershell.sh /home/gitpod/.zshrc.new
 COPY init.sh /home/gitpod/init.sh
