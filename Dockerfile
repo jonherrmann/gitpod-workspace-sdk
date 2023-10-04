@@ -19,6 +19,10 @@ RUN brew install \
     antigen \
     ctop
 
+RUN file="$HOME/.bashrc.d/99-java-path.sh" \
+    && echo "export PATH=/home/gitpod/.sdkman/candidates/java/current/bin:\$PATH" >> "${file}" \
+    && chmod +x "${file}"
+
 COPY .dockershell.sh /home/gitpod/.zshrc.new
 COPY init.sh /home/gitpod/init.sh
 COPY cmd.sh /home/gitpod/cmd.sh
